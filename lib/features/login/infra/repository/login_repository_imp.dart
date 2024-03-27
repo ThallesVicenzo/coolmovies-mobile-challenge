@@ -1,0 +1,32 @@
+import 'dart:developer';
+
+import 'package:coolmovies/core/response.dart';
+import 'package:coolmovies/features/login/domain/entities/login_entity.dart';
+import 'package:coolmovies/features/login/domain/repository/login_repository.dart';
+import 'package:coolmovies/features/login/infra/data_source/pokedata_data_source.dart';
+import 'package:graphql_flutter/graphql_flutter.dart' hide Response;
+
+class LoginRepositoryImp implements LoginRepository {
+  final LoginDataSource dataSource;
+
+  LoginRepositoryImp({
+    required this.dataSource,
+  });
+
+  @override
+  Future<Response<Exception, LoginEntity>> call(String name) async {
+    try {
+      final pokeData = await dataSource.call(name);
+      return Success(pokeData);
+    } on GraphQLError catch (e) {
+      log('Networking error ${e.message}', error: e);
+      return Response.fail(
+        Exception(),
+      );
+    } catch (e) {
+      return Response.fail(
+        Exception(e),
+      );
+    }
+  }
+}
