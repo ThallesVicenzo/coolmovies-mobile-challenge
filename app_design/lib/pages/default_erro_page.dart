@@ -89,8 +89,9 @@ class DefaultErrorPage extends StatelessWidget {
     return UiOverlayColor(
       overlayColor: Colors.black87,
       brightness: Brightness.light,
-      child: WillPopScope(
-        onWillPop: () async {
+      child: PopScope(
+        canPop: params.autoPop,
+        onPopInvoked: (_) async {
           if (params.onButtonPressed == null) {
             Navigator.of(context).canPop()
                 ? Navigator.of(context).pop()
@@ -98,7 +99,6 @@ class DefaultErrorPage extends StatelessWidget {
           } else {
             params.onButtonPressed?.call(context);
           }
-          return params.autoPop;
         },
         child: Scaffold(
           backgroundColor: const Color(0xFF161616),
