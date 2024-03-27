@@ -18,6 +18,8 @@ class CoolMovies extends StatelessWidget {
       routerDelegate: Modular.routerDelegate,
       theme: ThemeData(
         scaffoldBackgroundColor: ColorsPalette.backgroundColor,
+        package: 'app_design',
+        fontFamily: 'Nunito',
       ),
       builder: (context, child) {
         return UiOverlayColor(
