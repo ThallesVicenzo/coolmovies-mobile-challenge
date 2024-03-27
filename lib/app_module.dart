@@ -1,18 +1,34 @@
 import 'package:app_design/pages/default_erro_page.dart';
+import 'package:coolmovies/core/service/graphql_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'core/main_routes.dart';
+import 'features/login/login_module.dart';
 import 'features/splash/splash_module.dart';
 
 class AppModule extends Module {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind.singleton<GraphQLClient>(
+          (i) => GraphQLClient(
+            link: ClientService.httpLink,
+            cache: GraphQLCache(
+              store: InMemoryStore(),
+            ),
+          ),
+        )
+      ];
 
   @override
   List<ModularRoute> get routes => [
         ModuleRoute(
           MainRoutes.splash.route,
           module: SplashModule(),
+        ),
+        ModuleRoute(
+          MainRoutes.login.route,
+          module: LoginModule(),
         ),
         ChildRoute(
           MainRoutes.defaultError.route,
