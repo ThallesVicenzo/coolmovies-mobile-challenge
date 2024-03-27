@@ -36,7 +36,7 @@ class _SplashScreen extends State<SplashPage> {
         onEnd: () {
           if (value == 0) {
             Modular.to.navigate(
-              MainRoutes.home.route,
+              MainRoutes.login.route,
             );
           }
         },
