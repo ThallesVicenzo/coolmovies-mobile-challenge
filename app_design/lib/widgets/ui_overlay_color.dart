@@ -1,3 +1,4 @@
+import 'package:app_design/widgets/colors_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,8 +14,8 @@ class UiOverlayColor extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        statusBarColor: overlayColor ?? const Color(0xffE6E6E6),
-        statusBarIconBrightness: brightness ?? Brightness.dark,
+        statusBarColor: overlayColor ?? ColorsPalette.backgroundColor,
+        statusBarIconBrightness: brightness ?? Brightness.light,
       ),
       child: child,
     );
