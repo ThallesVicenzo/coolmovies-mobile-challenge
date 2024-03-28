@@ -5,7 +5,7 @@ class LoginModel extends LoginEntity {
 
   factory LoginModel.fromJson(Map<String, dynamic>? json) {
     return LoginModel(
-      name: json?['name'],
+      name: json?['name'] ?? '',
     );
   }
 }
