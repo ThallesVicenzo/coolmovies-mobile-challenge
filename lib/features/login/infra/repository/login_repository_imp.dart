@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:coolmovies/core/exception/default_error.dart';
 import 'package:coolmovies/core/response.dart';
 import 'package:coolmovies/features/login/domain/entities/login_entity.dart';
 import 'package:coolmovies/features/login/domain/repository/login_repository.dart';
@@ -14,18 +13,17 @@ class LoginRepositoryImp implements LoginRepository {
   });
 
   @override
-  Future<Response<Exception, LoginEntity>> call(String name) async {
+  Future<Response<DefaultError, LoginEntity>> call(String name) async {
     try {
       final pokeData = await dataSource.call(name);
       return Success(pokeData);
     } on GraphQLError catch (e) {
-      log('Networking error ${e.message}', error: e);
       return Response.fail(
-        Exception(),
+        DefaultError(e.message),
       );
     } catch (e) {
       return Response.fail(
-        Exception(e),
+        const DefaultError(),
       );
     }
   }

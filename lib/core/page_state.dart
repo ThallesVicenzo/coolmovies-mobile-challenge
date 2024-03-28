@@ -1,3 +1,5 @@
+import 'package:coolmovies/core/exception/default_error.dart';
+
 abstract class PageState<S extends Object?> {
   bool get isSuccess => this is SuccessState;
 
@@ -7,7 +9,7 @@ abstract class PageState<S extends Object?> {
 
   S get asSuccess => (this as SuccessState).data as S;
 
-  Exception get asError => (this as ErrorState).error;
+  DefaultError get asError => (this as ErrorState).error;
 }
 
 class InitialState<S extends Object?> extends PageState<S> {}
@@ -19,7 +21,7 @@ class LoadingState<S extends Object?> extends PageState<S> {
 }
 
 class ErrorState<S extends Object?> extends PageState<S> {
-  final Exception error;
+  final DefaultError error;
 
   ErrorState({required this.error});
 }
@@ -74,7 +76,7 @@ class _ShowInfoErrorState<S extends Object?> extends ErrorState<S>
   final String message;
 
   _ShowInfoErrorState({
-    required Exception error,
+    required DefaultError error,
     required this.message,
   }) : super(error: error);
 }
