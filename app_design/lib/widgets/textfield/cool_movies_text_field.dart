@@ -13,6 +13,7 @@ class CoolMoviesTextField extends StatelessWidget {
     this.height,
     this.validator,
     this.errorText,
+    this.onChanged,
   });
 
   final String? label;
@@ -20,7 +21,8 @@ class CoolMoviesTextField extends StatelessWidget {
   final String? errorText;
   final double? height;
   final TextEditingController controller;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +45,9 @@ class CoolMoviesTextField extends StatelessWidget {
           style: const TextStyle(color: ColorsPalette.marfim),
           cursorColor: ColorsPalette.marfim,
           validator: validator,
+          onChanged: onChanged,
           decoration: InputDecoration(
-            errorText: errorText ?? 'Please type something!',
+            errorText: errorText,
             errorBorder: outlineBorder,
             border: outlineBorder,
             constraints: BoxConstraints(maxHeight: height ?? 72),
