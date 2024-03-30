@@ -8,11 +8,13 @@ class PrimaryButton extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.size = const Size(double.infinity, 36),
+    this.color,
   });
 
   final String title;
   final Function() onTap;
   final Size size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class PrimaryButton extends StatelessWidget {
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
-          color: ColorsPalette.saffron,
+          color: color ?? ColorsPalette.saffron,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
