@@ -1,4 +1,5 @@
 import 'package:app_design/widgets/colors_palette.dart';
+import 'package:app_design/widgets/cool_movies_text.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -6,7 +7,7 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onTap,
-    this.size = const Size(double.infinity, 24),
+    this.size = const Size(double.infinity, 36),
   });
 
   final String title;
@@ -22,14 +23,13 @@ class PrimaryButton extends StatelessWidget {
         width: size.width,
         decoration: BoxDecoration(
           color: ColorsPalette.saffron,
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
-          child: Text(
-            title,
-            style: const TextStyle(
-              color: ColorsPalette.marfim,
-            ),
+          child: CoolMoviesText(
+            text: title,
+            size: 16,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
