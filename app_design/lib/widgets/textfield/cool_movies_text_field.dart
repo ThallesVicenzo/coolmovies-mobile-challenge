@@ -7,16 +7,20 @@ import '../text/cool_movies_text.dart';
 class CoolMoviesTextField extends StatelessWidget {
   const CoolMoviesTextField({
     super.key,
+    required this.controller,
     this.label,
     this.hintText,
-    required this.height,
-    required this.controller,
+    this.height,
+    this.validator,
+    this.errorText,
   });
 
   final String? label;
   final String? hintText;
-  final double height;
+  final String? errorText;
+  final double? height;
   final TextEditingController controller;
+  final String Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +38,16 @@ class CoolMoviesTextField extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        TextField(
+        TextFormField(
           controller: controller,
           style: const TextStyle(color: ColorsPalette.marfim),
           cursorColor: ColorsPalette.marfim,
+          validator: validator,
           decoration: InputDecoration(
+            errorText: errorText ?? 'Please type something!',
+            errorBorder: outlineBorder,
             border: outlineBorder,
-            constraints: BoxConstraints(maxHeight: height),
+            constraints: BoxConstraints(maxHeight: height ?? 72),
             hintText: hintText,
             hintStyle: TextStyle(color: ColorsPalette.marfim.withOpacity(0.5)),
             disabledBorder: outlineBorder,
