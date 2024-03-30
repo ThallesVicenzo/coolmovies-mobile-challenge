@@ -1,7 +1,9 @@
 import 'package:app_design/enums/app_images.dart';
 import 'package:app_design/widgets/buttons/primary_button.dart';
+import 'package:app_design/widgets/colors/colors_palette.dart';
 import 'package:app_design/widgets/colors/ui_overlay_color.dart';
 import 'package:app_design/widgets/image/image_widget.dart';
+import 'package:app_design/widgets/text/cool_movies_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,13 +34,13 @@ class ErrorPageParams {
   final bool autoPop;
 
   const ErrorPageParams({
-    this.titleError = 'Algo deu errado',
-    this.messageError = 'Tente novamente mais tarde.',
-    this.buttonErrorTitle = 'Tentar Novamente',
+    this.titleError = 'Something went wrong',
+    this.messageError = 'Try again later.',
+    this.buttonErrorTitle = 'Try again',
     this.onButtonPressed,
     this.code,
     this.errorlog,
-    this.image = AppImage.pikachuError,
+    this.image = AppImage.errorGif,
     this.autoPop = true,
   });
 
@@ -101,7 +103,7 @@ class DefaultErrorPage extends StatelessWidget {
           }
         },
         child: Scaffold(
-          backgroundColor: const Color(0xFF161616),
+          backgroundColor: ColorsPalette.backgroundColor,
           body: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -125,11 +127,10 @@ class DefaultErrorPage extends StatelessWidget {
                         );
                         scaffoldMessger.showSnackBar(
                           const SnackBar(
-                            content: Text(
-                              'Copiado para área de transferência',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
+                            content: CoolMoviesText(
+                              text: 'Copied to transfer area',
+                              size: 14,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         );
@@ -144,41 +145,33 @@ class DefaultErrorPage extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  Text(
-                    params.titleError,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
+                  CoolMoviesText(
+                    text: params.titleError,
+                    size: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    params.messageError,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
+                  CoolMoviesText(
+                    text: params.messageError,
+                    size: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                   const SizedBox(height: 16),
                   Visibility(
                     visible: params.code != null,
-                    child: Text(
-                      'Código: ${params.code}',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
+                    child: CoolMoviesText(
+                      text: 'Code: ${params.code}',
+                      size: 16,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(height: 16),
                   Visibility(
                     visible: kDebugMode && params.errorlog != null,
-                    child: Text(
-                      params.errorlog ?? '',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
+                    child: CoolMoviesText(
+                      text: params.errorlog ?? '',
+                      size: 16,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(height: 80),
@@ -195,7 +188,7 @@ class DefaultErrorPage extends StatelessWidget {
               children: [
                 PrimaryButton(
                   title: params.onButtonPressed == null
-                      ? 'Voltar'
+                      ? 'Go back'
                       : params.buttonErrorTitle,
                   onTap: () {
                     if (params.onButtonPressed == null) {
@@ -213,11 +206,10 @@ class DefaultErrorPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 20),
                   child: GestureDetector(
                     onTap: onBackStart,
-                    child: const Text(
-                      'Voltar para o início',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                    child: const CoolMoviesText(
+                      text: 'Back to start',
+                      size: 16,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
