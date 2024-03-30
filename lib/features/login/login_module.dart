@@ -3,8 +3,8 @@ import 'package:coolmovies/features/login/domain/usecases/login_usecase.dart';
 import 'package:coolmovies/features/login/external/login_data_source_imp.dart';
 import 'package:coolmovies/features/login/infra/repository/login_repository_imp.dart';
 import 'package:coolmovies/features/login/login_routes.dart';
-import 'package:coolmovies/features/login/presenter/controller/login_controller.dart';
-import 'package:coolmovies/features/login/presenter/pages/login_page.dart';
+import 'package:coolmovies/features/login/presenter/controller/sign_in_controller.dart';
+import 'package:coolmovies/features/login/presenter/pages/sign_in_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'infra/data_source/pokedata_data_source.dart';
@@ -27,9 +27,10 @@ class LoginModule extends Module {
             repository: i<LoginRepository>(),
           ),
         ),
-        Bind.factory<LoginController>(
-          (i) => LoginController(
+        Bind.factory<SignInController>(
+          (i) => SignInController(
             useCase: i<LoginUseCase>(),
+            secureStorage: i(),
           ),
         ),
       ];
@@ -38,8 +39,8 @@ class LoginModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           LoginRoutes.loginPage.route,
-          child: (context, _) => LoginPage(
-            controller: context.read<LoginController>(),
+          child: (context, _) => SignInPage(
+            controller: context.read<SignInController>(),
           ),
         ),
       ];
