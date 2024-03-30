@@ -1,4 +1,6 @@
 import 'package:app_design/pages/default_erro_page.dart';
+import 'package:coolmovies/core/secure_storage/secure_storage.dart';
+import 'package:coolmovies/core/secure_storage/secure_storage_impl.dart';
 import 'package:coolmovies/core/service/graphql_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -17,7 +19,10 @@ class AppModule extends Module {
               store: InMemoryStore(),
             ),
           ),
-        )
+        ),
+        Bind.singleton<SecureStorage>(
+          (i) => SecureStorageImpl(),
+        ),
       ];
 
   @override
