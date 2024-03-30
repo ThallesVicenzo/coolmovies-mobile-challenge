@@ -2,7 +2,7 @@ import 'dart:io';
 
 enum AppImage {
   logo('logo.png'),
-  pikachuError('pikachuError.gif');
+  errorGif('error-image.gif');
 
   const AppImage(this.name);
 
