@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:app_design/app_images.dart';
+import 'package:app_design/enums/app_images.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 

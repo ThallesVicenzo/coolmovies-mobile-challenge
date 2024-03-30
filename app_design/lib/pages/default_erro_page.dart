@@ -1,7 +1,7 @@
-import 'package:app_design/app_images.dart';
-import 'package:app_design/widgets/image_widget.dart';
-import 'package:app_design/widgets/primary_button.dart';
-import 'package:app_design/widgets/ui_overlay_color.dart';
+import 'package:app_design/enums/app_images.dart';
+import 'package:app_design/widgets/buttons/primary_button.dart';
+import 'package:app_design/widgets/colors/ui_overlay_color.dart';
+import 'package:app_design/widgets/image/image_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

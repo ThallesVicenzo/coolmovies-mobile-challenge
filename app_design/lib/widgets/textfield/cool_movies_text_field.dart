@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/values/finals.dart';
-import '../colors_palette.dart';
-import '../cool_movies_text.dart';
+import '../colors/colors_palette.dart';
+import '../text/cool_movies_text.dart';
 
 class CoolMoviesTextField extends StatelessWidget {
   const CoolMoviesTextField({

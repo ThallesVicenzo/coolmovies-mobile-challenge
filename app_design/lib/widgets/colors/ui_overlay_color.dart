@@ -1,4 +1,4 @@
-import 'package:app_design/widgets/colors_palette.dart';
+import 'package:app_design/widgets/colors/colors_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

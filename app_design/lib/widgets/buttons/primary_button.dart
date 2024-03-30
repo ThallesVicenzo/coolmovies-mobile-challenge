@@ -1,5 +1,5 @@
-import 'package:app_design/widgets/colors_palette.dart';
-import 'package:app_design/widgets/cool_movies_text.dart';
+import 'package:app_design/widgets/colors/colors_palette.dart';
+import 'package:app_design/widgets/text/cool_movies_text.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {

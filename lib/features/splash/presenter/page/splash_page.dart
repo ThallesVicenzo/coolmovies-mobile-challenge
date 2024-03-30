@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:app_design/app_images.dart';
-import 'package:app_design/widgets/colors_palette.dart';
-import 'package:app_design/widgets/image_widget.dart';
+import 'package:app_design/enums/app_images.dart';
+import 'package:app_design/widgets/colors/colors_palette.dart';
+import 'package:app_design/widgets/image/image_widget.dart';
 import 'package:coolmovies/core/main_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

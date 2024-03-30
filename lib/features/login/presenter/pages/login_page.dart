@@ -1,8 +1,8 @@
-import 'package:app_design/app_images.dart';
+import 'package:app_design/enums/app_images.dart';
 import 'package:app_design/pages/default_erro_page.dart';
-import 'package:app_design/widgets/cool_movies_text.dart';
-import 'package:app_design/widgets/image_widget.dart';
-import 'package:app_design/widgets/primary_button.dart';
+import 'package:app_design/widgets/buttons/primary_button.dart';
+import 'package:app_design/widgets/image/image_widget.dart';
+import 'package:app_design/widgets/text/cool_movies_text.dart';
 import 'package:app_design/widgets/textfield/cool_movies_text_field.dart';
 import 'package:coolmovies/core/main_routes.dart';
 import 'package:coolmovies/core/page_state.dart';

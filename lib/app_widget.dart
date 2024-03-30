@@ -1,5 +1,5 @@
-import 'package:app_design/widgets/colors_palette.dart';
-import 'package:app_design/widgets/ui_overlay_color.dart';
+import 'package:app_design/widgets/colors/colors_palette.dart';
+import 'package:app_design/widgets/colors/ui_overlay_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

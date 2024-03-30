@@ -1,4 +1,4 @@
-import 'package:app_design/app_images.dart';
+import 'package:app_design/enums/app_images.dart';
 import 'package:flutter/material.dart';
 
 class ImageWidget extends StatelessWidget {
