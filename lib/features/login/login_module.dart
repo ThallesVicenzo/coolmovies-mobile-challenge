@@ -7,7 +7,7 @@ import 'package:coolmovies/features/login/presenter/controller/sign_in_controlle
 import 'package:coolmovies/features/login/presenter/pages/sign_in_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'infra/data_source/pokedata_data_source.dart';
+import 'infra/data_source/login_data_source.dart';
 
 class LoginModule extends Module {
   @override

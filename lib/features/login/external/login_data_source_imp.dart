@@ -2,7 +2,7 @@ import 'package:coolmovies/features/login/domain/entities/login_entity.dart';
 import 'package:coolmovies/features/login/infra/models/login_model.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import '../infra/data_source/pokedata_data_source.dart';
+import '../infra/data_source/login_data_source.dart';
 
 class LoginDataSourceImpl implements LoginDataSource {
   final GraphQLClient client;
