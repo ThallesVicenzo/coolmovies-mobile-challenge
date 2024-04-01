@@ -2,6 +2,7 @@ import 'package:app_design/pages/default_erro_page.dart';
 import 'package:coolmovies/core/secure_storage/secure_storage.dart';
 import 'package:coolmovies/core/secure_storage/secure_storage_impl.dart';
 import 'package:coolmovies/core/service/graphql_service.dart';
+import 'package:coolmovies/features/home/home_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -34,6 +35,10 @@ class AppModule extends Module {
         ModuleRoute(
           MainRoutes.login.route,
           module: LoginModule(),
+        ),
+        ModuleRoute(
+          MainRoutes.home.route,
+          module: HomeModule(),
         ),
         ChildRoute(
           MainRoutes.defaultError.route,
