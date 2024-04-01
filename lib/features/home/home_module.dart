@@ -30,6 +30,7 @@ class HomeModule extends Module {
         Bind.factory<HomeController>(
           (i) => HomeController(
             useCase: i<HomeUseCase>(),
+            secureStorage: i(),
           ),
         ),
       ];
