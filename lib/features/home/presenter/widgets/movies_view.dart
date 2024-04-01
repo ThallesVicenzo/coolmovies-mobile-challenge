@@ -18,7 +18,9 @@ class MoviesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Modular.to.pushNamed(MainRoutes.rating.route);
+        Modular.to.pushNamed(MainRoutes.rating.route, arguments: {
+          'id': movie.id,
+        });
       },
       child: Column(
         children: [
