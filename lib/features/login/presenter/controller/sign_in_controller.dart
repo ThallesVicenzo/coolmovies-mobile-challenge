@@ -1,5 +1,6 @@
 import 'package:coolmovies/core/main_routes.dart';
 import 'package:coolmovies/core/page_state.dart';
+import 'package:coolmovies/core/secure_storage/keys/secure_storage_keys.dart';
 import 'package:coolmovies/core/secure_storage/secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -39,8 +40,8 @@ class SignInController extends ChangeNotifier {
     final result = await useCase.call(name);
     result.deal(
       onFail: (e) => state.value = ErrorState(error: e),
-      onSuccess: (s) {
-        secureStorage.write(key: 'username', value: s.name);
+      onSuccess: (s) async {
+        await secureStorage.write(key: SecureStorageKeys.name.key, value: name);
         Modular.to.navigate(MainRoutes.home.route);
       },
     );
