@@ -1,63 +1,57 @@
-import 'dart:async';
-
 import 'package:app_design/enums/app_images.dart';
 import 'package:app_design/widgets/colors/colors_palette.dart';
 import 'package:app_design/widgets/image/image_widget.dart';
-import 'package:coolmovies/core/main_routes.dart';
+import 'package:coolmovies/features/splash/presenter/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+  const SplashPage({super.key, required this.controller});
+
+  final SplashController controller;
 
   @override
   State<SplashPage> createState() => _SplashScreen();
 }
 
 class _SplashScreen extends State<SplashPage> {
-  double value = 1;
+  late final String? savedName;
 
   @override
   void initState() {
-    Timer(const Duration(milliseconds: 1500), () {
-      setState(() {
-        value = 0;
-      });
-    });
+    widget.controller.retrieveName().then((value) => savedName = value);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedOpacity(
-        opacity: value,
-        duration: kThemeAnimationDuration,
-        onEnd: () {
-          if (value == 0) {
-            Modular.to.navigate(
-              MainRoutes.login.route,
-            );
-          }
-        },
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: ImageWidget(
-                image: AppImage.logo,
-                size: Size(250, 250),
+      body: ValueListenableBuilder<double>(
+        valueListenable: widget.controller.value,
+        builder: (context, value, child) => AnimatedOpacity(
+          opacity: value,
+          duration: kThemeAnimationDuration,
+          onEnd: () {
+            widget.controller.splashAnimation(value, savedName);
+          },
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: ImageWidget(
+                  image: AppImage.logo,
+                  size: Size(250, 250),
+                ),
               ),
-            ),
-            Text(
-              'Cool Movies',
-              style: TextStyle(
-                color: ColorsPalette.marfim,
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-              ),
-            )
-          ],
+              Text(
+                'Cool Movies',
+                style: TextStyle(
+                  color: ColorsPalette.marfim,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
