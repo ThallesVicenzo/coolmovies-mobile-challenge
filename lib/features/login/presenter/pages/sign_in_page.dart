@@ -3,6 +3,7 @@ import 'package:app_design/pages/default_erro_page.dart';
 import 'package:app_design/widgets/buttons/primary_button.dart';
 import 'package:app_design/widgets/colors/colors_palette.dart';
 import 'package:app_design/widgets/image/image_widget.dart';
+import 'package:app_design/widgets/loading/cool_movies_loading.dart';
 import 'package:app_design/widgets/text/cool_movies_text.dart';
 import 'package:app_design/widgets/textfield/cool_movies_text_field.dart';
 import 'package:coolmovies/core/main_routes.dart';
@@ -109,19 +110,6 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CoolMoviesLoading extends StatelessWidget {
-  const CoolMoviesLoading({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircularProgressIndicator(
-      color: ColorsPalette.marfim,
     );
   }
 }
