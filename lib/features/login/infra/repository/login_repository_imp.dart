@@ -15,8 +15,8 @@ class LoginRepositoryImp implements LoginRepository {
   @override
   Future<Response<DefaultError, LoginEntity>> call(String name) async {
     try {
-      final pokeData = await dataSource.call(name);
-      return Success(pokeData);
+      final data = await dataSource.call(name);
+      return Success(data);
     } on GraphQLError catch (e) {
       return Response.fail(
         DefaultError(e.message),
