@@ -5,7 +5,7 @@ import 'package:coolmovies/core/secure_storage/secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../domain/entities/login_entity.dart';
+import '../../../../core/domain/entities/user_entity.dart';
 import '../../domain/usecases/login_usecase.dart';
 
 class SignInController extends ChangeNotifier {
@@ -17,7 +17,7 @@ class SignInController extends ChangeNotifier {
     required this.secureStorage,
   });
 
-  final state = ValueNotifier<PageState<LoginEntity>>(InitialState());
+  final state = ValueNotifier<PageState<UserEntity>>(InitialState());
 
   final TextEditingController textEditingController = TextEditingController();
 

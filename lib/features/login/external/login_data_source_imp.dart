@@ -1,4 +1,4 @@
-import 'package:coolmovies/features/login/domain/entities/login_entity.dart';
+import 'package:coolmovies/core/domain/entities/user_entity.dart';
 import 'package:coolmovies/features/login/infra/models/login_model.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -12,7 +12,7 @@ class LoginDataSourceImpl implements LoginDataSource {
   });
 
   @override
-  Future<LoginEntity> call(String name) async {
+  Future<UserEntity> call(String name) async {
     final QueryResult result = await client.mutate(
       MutationOptions(
         variables: {'name': name},
@@ -29,6 +29,8 @@ class LoginDataSourceImpl implements LoginDataSource {
       ),
     );
 
-    return LoginModel.fromJson(result.data);
+    final user = result.data?['createUser']['user'];
+
+    return LoginModel.fromJson(user);
   }
 }
