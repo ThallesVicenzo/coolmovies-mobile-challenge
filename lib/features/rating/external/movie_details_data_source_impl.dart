@@ -16,7 +16,7 @@ class MovieDetailsDataSourceImpl implements MovieDetailsDataSource {
           'id': id,
         },
         document: gql('''
-          query GetMovieById('\$id: String!') {
+          query getMovieById{
             movieById(id: \$id) {
               imgUrl
               title
@@ -31,7 +31,9 @@ class MovieDetailsDataSourceImpl implements MovieDetailsDataSource {
                   title
                   userByUserReviewerId {
                     name
+                    id
                   }
+                  id
                 }
               }
             }
@@ -39,6 +41,7 @@ class MovieDetailsDataSourceImpl implements MovieDetailsDataSource {
         '''),
       ),
     );
+
     final data = result.data?['movieById'];
 
     return MovieDetailsModel.fromJson(data);
