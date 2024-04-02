@@ -205,7 +205,9 @@ class DefaultErrorPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: GestureDetector(
-                    onTap: onBackStart,
+                    onTap: () {
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                    },
                     child: const CoolMoviesText(
                       text: 'Back to start',
                       size: 16,
