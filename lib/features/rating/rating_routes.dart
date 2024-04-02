@@ -1,7 +1,8 @@
 import '../../core/main_routes.dart';
 
 enum RatingRoutes {
-  movieDetails('/');
+  movieDetails('/'),
+  allReviews('/all-reviews');
 
   const RatingRoutes(this.route);
 
