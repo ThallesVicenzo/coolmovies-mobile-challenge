@@ -35,14 +35,17 @@ class AppModule extends Module {
         ),
         ModuleRoute(
           MainRoutes.login.route,
+          transition: TransitionType.rightToLeft,
           module: LoginModule(),
         ),
         ModuleRoute(
           MainRoutes.home.route,
+          transition: TransitionType.rightToLeft,
           module: HomeModule(),
         ),
         ModuleRoute(
           MainRoutes.rating.route,
+          transition: TransitionType.rightToLeft,
           module: RatingModule(),
         ),
         ChildRoute(
