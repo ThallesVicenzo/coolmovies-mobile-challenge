@@ -1,8 +1,10 @@
+import 'package:coolmovies/features/rating/domain/entity/movie_reviews.dart';
 import 'package:coolmovies/features/rating/domain/repository/movie_details_repository.dart';
 import 'package:coolmovies/features/rating/domain/usecases/movie_details_usecase.dart';
 import 'package:coolmovies/features/rating/external/movie_details_data_source_impl.dart';
 import 'package:coolmovies/features/rating/infra/data_source/movie_details_data_source.dart';
 import 'package:coolmovies/features/rating/infra/repository/movie_details_repository_impl.dart';
+import 'package:coolmovies/features/rating/presenter/pages/all_reviews_page.dart';
 import 'package:coolmovies/features/rating/presenter/pages/movie_details_page.dart';
 import 'package:coolmovies/features/rating/rating_routes.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -41,6 +43,13 @@ class RatingModule extends Module {
           child: (context, args) => MovieDetailsPage(
             controller: context.read<MovieDetailsController>(),
             id: args.data['id'] as String,
+          ),
+        ),
+        ChildRoute(
+          RatingRoutes.allReviews.route,
+          transition: TransitionType.rightToLeft,
+          child: (context, args) => AllReviewsPage(
+            entity: args.data['reviews'] as List<MovieReviewsEntity>,
           ),
         ),
       ];
