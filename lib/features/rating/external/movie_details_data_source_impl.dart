@@ -12,12 +12,9 @@ class MovieDetailsDataSourceImpl implements MovieDetailsDataSource {
   Future<MovieDetailsEntity> call(String id) async {
     final QueryResult result = await client.query(
       QueryOptions(
-        variables: {
-          'id': id,
-        },
         document: gql('''
           query getMovieById{
-            movieById(id: \$id) {
+            movieById(id:"$id") {
               imgUrl
               title
               releaseDate
