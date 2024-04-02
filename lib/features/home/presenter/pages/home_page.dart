@@ -65,11 +65,10 @@ class _HomePageState extends State<HomePage> {
           builder: (context, state, _) {
             if (state is SuccessState) {
               return GridView.builder(
-                padding: EdgeInsets.zero,
+                padding: const EdgeInsets.only(left: 16, top: 16),
                 itemCount: state.asSuccess.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
+                    crossAxisCount: 2, childAspectRatio: 0.5),
                 itemBuilder: (context, index) {
                   final movie = state.asSuccess[index];
                   return MoviesView(movie: movie);
