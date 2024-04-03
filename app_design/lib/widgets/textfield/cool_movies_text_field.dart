@@ -59,7 +59,7 @@ class CoolMoviesTextField extends StatelessWidget {
             contentPadding: const EdgeInsets.all(8),
             errorBorder: outlineBorder,
             border: outlineBorder,
-            constraints: BoxConstraints(maxHeight: height ?? 200),
+            constraints: BoxConstraints(maxHeight: height ?? 48),
             hintText: hintText,
             hintStyle: TextStyle(color: ColorsPalette.marfim.withOpacity(0.5)),
             disabledBorder: outlineBorder,
