@@ -10,6 +10,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
     required super.releaseDate,
     required super.directorName,
     required super.movieReviewsByMovieId,
+    required super.movieId,
   });
 
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +23,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
     return MovieDetailsModel(
       imgUrl: json.getValue('imgUrl'),
       title: json.getValue('title'),
+      movieId: json.getValue('id'),
       releaseDate: DateTime.parse(json.getValue('releaseDate')),
       directorName: json.getValue('movieDirectorByMovieDirectorId')['name'],
       movieReviewsByMovieId: reviews,
