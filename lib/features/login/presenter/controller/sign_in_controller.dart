@@ -42,6 +42,7 @@ class SignInController extends ChangeNotifier {
       onFail: (e) => state.value = ErrorState(error: e),
       onSuccess: (s) async {
         await secureStorage.write(key: SecureStorageKeys.name.key, value: name);
+        await secureStorage.write(key: SecureStorageKeys.id.key, value: s.id);
         Modular.to.navigate(MainRoutes.home.route);
       },
     );
