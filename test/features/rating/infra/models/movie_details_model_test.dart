@@ -12,6 +12,7 @@ void main() {
                 "https://upload.wikimedia.org/wikipedia/en/d/d4/Rogue_One%2C_A_Star_Wars_Story_poster.png",
             "title": "Rogue One: A Star Wars Story",
             "releaseDate": "2016-12-16",
+            "id": "70351289-8756-4101-bf9a-37fc8c7a82cd",
             "movieDirectorByMovieDirectorId": {"name": "Gareth Edwards"},
             "movieReviewsByMovieId": {
               "nodes": [
