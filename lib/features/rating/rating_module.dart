@@ -54,7 +54,6 @@ class RatingModule extends Module {
           (i) => MovieDetailsController(
             detailsUsecase: i<MovieDetailsUseCase>(),
             commentUseCase: i<CreateReviewUseCase>(),
-            secureStorage: i(),
           ),
         ),
       ];
