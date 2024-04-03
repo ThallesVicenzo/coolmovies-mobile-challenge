@@ -17,6 +17,7 @@ class MovieDetailsDataSourceImpl implements MovieDetailsDataSource {
             movieById(id:"$id") {
               imgUrl
               title
+              id
               releaseDate
               movieDirectorByMovieDirectorId {
                 name

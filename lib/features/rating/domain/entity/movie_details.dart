@@ -6,6 +6,7 @@ class MovieDetailsEntity {
   final DateTime releaseDate;
   final String directorName;
   final List<MovieReviewsEntity> movieReviewsByMovieId;
+  final String movieId;
 
   MovieDetailsEntity({
     required this.imgUrl,
@@ -13,5 +14,6 @@ class MovieDetailsEntity {
     required this.releaseDate,
     required this.directorName,
     required this.movieReviewsByMovieId,
+    required this.movieId,
   });
 }
