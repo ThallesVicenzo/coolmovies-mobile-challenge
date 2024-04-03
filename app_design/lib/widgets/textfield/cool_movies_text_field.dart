@@ -14,12 +14,14 @@ class CoolMoviesTextField extends StatelessWidget {
     this.validator,
     this.errorText,
     this.onChanged,
+    this.maxLines = 1,
   });
 
   final String? label;
   final String? hintText;
   final String? errorText;
   final double? height;
+  final int? maxLines;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
@@ -28,14 +30,17 @@ class CoolMoviesTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            CoolMoviesText(
-              text: label ?? '',
-              size: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ],
+        Visibility(
+          visible: label != null ? true : false,
+          child: Row(
+            children: [
+              CoolMoviesText(
+                text: label ?? '',
+                size: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ],
+          ),
         ),
         const SizedBox(
           height: 8,
@@ -44,13 +49,17 @@ class CoolMoviesTextField extends StatelessWidget {
           controller: controller,
           style: const TextStyle(color: ColorsPalette.marfim),
           cursorColor: ColorsPalette.marfim,
+          maxLines: maxLines,
+          expands: maxLines == null ? true : false,
           validator: validator,
           onChanged: onChanged,
           decoration: InputDecoration(
             errorText: errorText,
+            isCollapsed: maxLines == null ? true : false,
+            contentPadding: const EdgeInsets.all(8),
             errorBorder: outlineBorder,
             border: outlineBorder,
-            constraints: BoxConstraints(maxHeight: height ?? 72),
+            constraints: BoxConstraints(maxHeight: height ?? 200),
             hintText: hintText,
             hintStyle: TextStyle(color: ColorsPalette.marfim.withOpacity(0.5)),
             disabledBorder: outlineBorder,
