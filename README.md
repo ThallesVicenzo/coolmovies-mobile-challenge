@@ -1,4 +1,4 @@
-Design inspired by: https://www.behance.net/gallery/182571289/Movie-Review-App-UI-UX-Case-Study?tracking_source=search_projects|Movie+Review+App&l=36&
+Design inspired by: https://www.behance.net/gallery/182571289/Movie-Review-App-UI-UX-Case-Study?tracking_source=search_projects|Movie+Review+App&l=36&\\
 All credits reserved to: Deenathayalan V
 
 
